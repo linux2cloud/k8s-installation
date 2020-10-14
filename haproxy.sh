@@ -19,3 +19,12 @@ backend be-apiserver
         server master-a 172.24.0.161:6443 check
         server master-b 172.24.0.162:6443 check
 EOF
+
+## Start and Enable haproxy service
+systemctl restart haproxy
+systemctl enable haproxy
+systemctl status haproxy
+
+## Disable Firewalld on Loadbalacer Server
+systemctl disable firewalld
+systemctl stop firewalld
