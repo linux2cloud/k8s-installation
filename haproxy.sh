@@ -2,6 +2,8 @@
 
 yum install haproxy -y
 
+## Append haproxy.cfg
+
 cat >> /etc/haproxy/haproxy.cfg <<EOF
 frontend fe-apiserver
         bind *:6443
