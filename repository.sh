@@ -13,3 +13,7 @@ EOF
 ## Send repository file to all cluster nodes and configure repository
 
 for n in master-a master-b worker-a worker-b; do echo "*********$n********"; scp kubernetes.repo $n:/etc/yum.repos.d/; done
+
+## Create docker repository on all cluster nodes
+
+for n in master-a master-b worker-a worker-b; do echo "*********$n********"; ssh -qt $n " yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"; done
